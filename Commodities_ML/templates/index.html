@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodity Trading Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Commodity Trading Dashboard</h1>
+    <div id="graph"></div>
+    <script>
+        var layout = {
+            title: 'Real-Time Trading Returns',
+            xaxis: {
+                title: 'Time'
+            },
+            yaxis: {
+                title: 'Return'
+            }
+        };
+
+        Plotly.newPlot('graph', [], layout);
+
+        function updateGraph() {
+            fetch('/graph-data')
+            .then(response => response.json())
+            .then(data => {
+                Plotly.react('graph', [data], layout);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        setInterval(updateGraph, 60000); // Update every minute
+    </script>
+</body>
+</html>
