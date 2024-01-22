@@ -1,5 +1,6 @@
 # EconoMystic: Commodity Trading Bot
 
+
 This repository contains the source code for a Commodity Trading Bot, specifically designed to trade Gold Futures (CL=F). The bot utilizes a custom algorithm to make trading decisions and tracks its performance over time.
 
 ## Features
@@ -32,6 +33,35 @@ This repository contains the source code for a Commodity Trading Bot, specifical
    python app.py
    ```
 
+
+### Features
+
+- **Historical Data Analysis**: Utilizes the `yfinance` library to fetch historical data of a specified commodity.
+- **Machine Learning Integration**: Incorporates a Logistic Regression model from `sklearn` to predict future price movements.
+- **Real-Time Decision Making**: Makes trading decisions based on real-time prices fetched from an external source.
+
+### Methods
+
+- `_get_historical_data()`: Fetches historical price data for the commodity and prepares it for the model.
+- `_train_model()`: Trains the logistic regression model on historical data and evaluates its accuracy.
+- `make_decision()`: Makes a buy or sell decision based on the current price prediction by the model.
+
+
+### Dependencies
+
+- `sklearn`: For machine learning model implementation and evaluation.
+- `yfinance`: To fetch historical commodity data.
+- `pandas` and `numpy`: For data manipulation and numerical operations.
+
+### Example Output
+
+Running the script will output the model's accuracy on the historical data and the current trading decision, either "Buy" or "Sell".
+
+### Integration
+
+This class is designed to be integrated into the broader commodity trading bot system, working in tandem with other components like the data visualization and web interface provided by the Flask app.
+
+
 ## Usage
 
 - **Starting the Bot**: Upon running `app.py`, the bot starts trading and updating the trading history every minute.
@@ -43,6 +73,9 @@ This repository contains the source code for a Commodity Trading Bot, specifical
 - **Flask Framework**: Used for creating the web interface and API.
 - **Threading**: A separate thread for continuously updating the trading history.
 - **Visualization**: Dynamic graph generation based on the bot's performance.
+
+![Screenshot 2024-01-22 at 2 11 20 AM](https://github.com/mayank-bharwal/EconoMystic/assets/119955673/d723820a-c2c4-46cc-a3eb-f799bbd24458)
+
 
 ## Contribution
 
